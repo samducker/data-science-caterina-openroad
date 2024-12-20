@@ -47,7 +47,6 @@ def process_books(
     credentials_path: str,
     spreadsheet_id: str,
     sheet_range: str,
-    confidence_threshold: float = 0.85,  # Very high threshold for model-based classification
     batch_size: int = 10,  # Process 10 books at a time
     max_retries: int = 2  # Maximum number of retries for unknown genres
 ) -> bool:
@@ -58,7 +57,6 @@ def process_books(
         credentials_path: Path to Google Sheets credentials file
         spreadsheet_id: ID of the target spreadsheet
         sheet_range: A1 notation of the range containing book titles
-        confidence_threshold: Minimum confidence for genre classification
         batch_size: Number of books to process before writing to sheet
         max_retries: Maximum number of retries for unknown genres
         
@@ -142,11 +140,7 @@ def process_books(
                         time.sleep(1)  # Brief delay between retries
                         
                     try:
-                        genre, confidence = classify_genre(
-                            classifier,
-                            title,
-                            confidence_threshold
-                        )
+                        genre, confidence = classify_genre(classifier, title)
                     except Exception as e:
                         print(f"Error during classification attempt {retries + 1}: {str(e)}")
                         break
