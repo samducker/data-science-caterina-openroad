@@ -23,7 +23,7 @@ This automated solution demonstrates both technical proficiency and creative pro
 
 ### System Requirements
 - macOS, Linux, or Windows
-- Python 3.9 (recommended) or Python 3.8
+- Python 3.8+
 - Git
 
 ### Prerequisites
