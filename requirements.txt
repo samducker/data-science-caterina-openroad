@@ -1,6 +1,7 @@
 google-auth-oauthlib>=1.0.0
 google-api-python-client>=2.0.0
 transformers>=4.30.0
+--find-links https://download.pytorch.org/whl/torch_stable.html
 torch>=2.0.0
 python-dotenv>=1.0.0
 typing-extensions>=4.5.0 
