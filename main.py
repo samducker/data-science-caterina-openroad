@@ -32,7 +32,7 @@ def process_books(service, classifier, spreadsheet_id: str, sheet_range: str) ->
     current_batch: List[Tuple[str, str]] = []
     processed = updated = 0
     
-    for title, row in books:
+    for title, row, column in books:
         sheet_name = sheet_range.split('!')[0]
         genre_range = f"{sheet_name}!F{row}"
         
