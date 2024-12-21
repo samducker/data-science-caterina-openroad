@@ -56,7 +56,7 @@ def classify_genre(classifier: Pipeline, title: str) -> Tuple[str, float]:
         )
         
         # Map the result to our desired output format
-        genre = "Fiction" if "fictional" in result['labels'][0] else "Non-fiction"
+        genre = "Fiction" if "fictional" in result['labels'][0] else "Non-Fiction"
         confidence = result['scores'][0]
         
         return (genre, confidence)
